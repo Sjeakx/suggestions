@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOCKS Proxy Example</title>
+  <script>
+    async function fetchData() {
+      const response = await fetch('/api/proxy', {
+        method: 'GET', 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</head>
+<body>
+  <h1>SOCKS Proxy Request Example</h1>
+  <button onclick="fetchData()">Fetch Data via SOCKS Proxy</button>
+  <pre id="output"></pre>
+</body>
+</html>
